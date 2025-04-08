@@ -1,0 +1,104 @@
+@import url(./imports.css);
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+header{
+    padding: 10px 20px;
+    background: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    background-color: rgba(245, 245, 245, 0.596);
+}
+
+header img {
+    height: 3.5rem;
+    background: none;
+}
+
+.list-head {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+    font-family: "OpenSans-Bold";
+}
+
+.list-head a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+header a:nth-child(3) {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    padding: 5px 20px;
+    background-color: #FFCD00;
+    height: 40px;
+    justify-content: center;
+    font-family: "OpenSans-Bold";
+    border-radius: 5px;
+}
+
+
+
+
+
+main{
+
+}
+
+.section1{
+    position: absolute;
+    height: 80svh;
+    top: 0;
+    z-index: -1;
+}
+
+.section1 img {
+    width: 100svw;
+}
+
+.section1 div {
+    position: absolute;
+    top: 40%;
+    padding-left: 10svw;
+
+}
+
+.section1 div h1{
+    font-family: "OpenSans-Bold";
+    color: white;
+    text-shadow: 4px 4px 5px rgba(255, 255, 255, 0.6);
+    font-size: 50px;
+}
+
+.section1 div h1:nth-child(3){
+    padding-left: 30svw;
+    margin-top: -20px;
+}
+
+.section1 div span {
+    font-size: 100px;
+    text-shadow: 2px 1px 0px rgba(255, 255, 255, 0.6);
+    background: linear-gradient(90deg, #FFCD00, #003087, #C8102E);
+    color: white;
+    text-shadow: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    font-weight: bold;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "OpenSans-Bold";
+    margin-left: 8svw;
+    margin-top: -30px;
+}
