@@ -67,6 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     cargarDepartamentos();
+
+
 });
 
 function cargarDepartamentos() {
@@ -113,37 +115,59 @@ function renderizarLista(departamentos) {
 }
 
 
-// {
-//     "id": 1,
-//     "name": "Colombia",
-//     "description": "Colombia, oficialmente República de Colombia, es un país de América del Sur con regiones insulares en América del Norte, cerca de la costa caribeña de Nicaragua, así como en el Océano Pacífico. El territorio continental de Colombia limita al norte con el Mar Caribe, al este y noreste con Venezuela, al sureste con Brasil, al sur y suroeste con Ecuador y Perú, al oeste con el Océano Pacífico y al noroeste con Panamá. Colombia está dividida en 32 departamentos y el Distrito Capital de Bogotá, la ciudad más grande del país. Cubre un área de 1.141.748 kilómetros cuadrados (440.831 millas cuadradas) y tiene una población de 52 millones. El patrimonio cultural de Colombia, que incluye lengua, religión, cocina y arte, refleja su historia como colonia española, fusionando elementos culturales traídos por la inmigración de Europa y Medio Oriente, con los traídos por africanos esclavizados, así como con los de los diversos Civilizaciones indígenas anteriores a la colonización. El español es el idioma oficial del estado, aunque el inglés y otros 64 idiomas son idiomas regionales reconocidos.",
-//     "stateCapital": "Bogotá",
-//     "surface": 1141748,
-//     "population": 52235050,
-//     "languages": [
-//         "Spanish",
-//         "English"
-//     ],
-//     "timeZone": "UTC-5",
-//     "currency": "Colombian Peso",
-//     "currencyCode": "COP",
-//     "currencySymbol": "$",
-//     "isoCode": "CO",
-//     "internetDomain": ".co",
-//     "phonePrefix": "+57",
-//     "radioPrefix": "HK",
-//     "aircraftPrefix": "HK",
-//     "subRegion": "South America",
-//     "region": "Americas",
-//     "borders": [
-//         "Brazil",
-//         "Panamá",
-//         "Ecuador",
-//         "Venezuela",
-//         "Perú"
-//     ],
-//     "flags": [
-//         "https://flagcdn.com/co.svg",
-//         "https://flagcdn.com/w320/co.png"
-//     ]
-// }
+function cargarPresidentes() {
+    fetch(url + '/api/v1/President')
+        .then(respuesta => respuesta.json())
+        .then(info => {
+            const sectionPresi = document.querySelector(".carrouselPresi");
+
+            info.sort((a, b) => new Date(b.startPeriodDate) - new Date(a.startPeriodDate));
+
+            info.forEach(presidente => {
+                const tarjetita = document.createElement("div");
+                tarjetita.classList.add("tarjetita");
+
+                const imagen = document.createElement("img");
+                imagen.src = presidente.image;
+                imagen.alt = presidente.name + " " + presidente.lastName;
+                tarjetita.appendChild(imagen);
+
+                const nombre = document.createElement("h3");
+                nombre.innerHTML = presidente.name + "<br>" + presidente.lastName;
+                nombre.style = "font-family: OpenSans-Bold;"
+                tarjetita.appendChild(nombre);
+
+                const duracion = document.createElement("h4");
+                const inicio = presidente.startPeriodDate;
+                const fin = presidente.endPeriodDate ? presidente.endPeriodDate : "Actualidad";
+                duracion.innerHTML = "Duración de mandato:<br>" + inicio + " - " + fin;
+                duracion.style = "font-family: OpenSans-Light;"
+                tarjetita.appendChild(duracion);
+
+                sectionPresi.appendChild(tarjetita);
+            });
+
+            
+        })
+        .catch(error => console.error("Error al cargar los presidentes:", error));
+}
+
+const carrousel = document.querySelector(".carrouselPresi");
+const btnIzq = document.querySelector(".flecha.izquierda");
+const btnDer = document.querySelector(".flecha.derecha");
+
+const tarjetaWidth = carrousel.offsetWidth * 0.2; 
+
+btnIzq.addEventListener("click", () => {
+    carrousel.scrollBy({ left: -tarjetaWidth, behavior: "smooth" });
+});
+
+btnDer.addEventListener("click", () => {
+    carrousel.scrollBy({ left: tarjetaWidth, behavior: "smooth" });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    cargarPresidentes()
+})
