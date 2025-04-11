@@ -17,3 +17,8 @@
     font-family: "OpenSans-ExtraBold";
     src: url(../storage/fonts/Open_Sans/OpenSans-ExtraBold.ttf);
 }
+
+@font-face {
+    font-family: "OpenSans-Italic";
+    src: url(../storage/fonts/Open_Sans/OpenSans-BoldItalic.ttf);
+}

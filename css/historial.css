@@ -1,0 +1,117 @@
+@import url(./imports.css);
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+header{
+    padding: 10px 20px;
+    background: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    background-color: rgba(245, 245, 245, 0.596);
+    width: 100%;
+}
+
+header img {
+    height: 3.5rem;
+    background: none;
+}
+
+main{
+    margin: 0% 5%;
+}
+
+.list-head {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+    font-family: "OpenSans-Bold";
+}
+
+.list-head a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+header a:nth-child(3) {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    padding: 5px 20px;
+    background-color: #FFCD00;
+    height: 40px;
+    justify-content: center;
+    font-family: "OpenSans-Bold";
+    border-radius: 5px;
+}
+
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.historial-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.historial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.historial-card h3 {
+    font-family: 'OpenSans-Bold', sans-serif;
+    margin-top: 0;
+    font-size: 1.4rem;
+    color: #003366;
+}
+
+.historial-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.historial-card p {
+    margin: 0.5rem 0;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.historial-card strong {
+    font-weight: bold;
+    font-family: 'OpenSans-Bold', sans-serif;
+}
+
+.remove-btn {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #c62828;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'OpenSans-Bold', sans-serif;
+    transition: background-color 0.2s ease;
+}
+
+.remove-btn:hover {
+    background-color: #b71c1c;
+}
