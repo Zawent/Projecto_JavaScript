@@ -1,0 +1,54 @@
+@import url(./imports.css);
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+header{
+    padding: 10px 20px;
+    background: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    background-color: rgba(245, 245, 245, 0.596);
+    width: 100%;
+}
+
+header img {
+    height: 3.5rem;
+    background: none;
+}
+
+main{
+    margin: 0% 5%;
+}
+
+.list-head {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+    font-family: "OpenSans-Bold";
+}
+
+.list-head a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+header a:nth-child(3) {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    padding: 5px 20px;
+    background-color: #FFCD00;
+    height: 40px;
+    justify-content: center;
+    font-family: "OpenSans-Bold";
+    border-radius: 5px;
+}
