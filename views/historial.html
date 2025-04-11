@@ -12,8 +12,7 @@
         <ul class="list-head">
             <li><a href="./informacion.html">Información</a></li>
             <li><a href="./turismo.html">Turismo</a></li>
-            <li><a href="">Historia</a></li>
-            <li><a href="">Tradiciones</a></li>
+            <li><a href="">Historial</a></li>
         </ul>
         <a href="#">Contactanos</a>
     </header>
@@ -24,14 +23,12 @@
         document.addEventListener("DOMContentLoaded", () => {
             const main = document.querySelector('main');
     
-            // Función reutilizable para procesar claves de favoritos
             function procesarStorage(storage) {
                 for (let i = 0; i < storage.length; i++) {
                     const key = storage.key(i);
     
                     if (storage.getItem(key) !== 'true') continue;
     
-                    // PLATOS TÍPICOS
                     if (key.startsWith('dish-')) {
                         const dishId = key.split('-')[1];
     
@@ -43,7 +40,6 @@
                             });
                     }
     
-                    // ATRACCIONES TURÍSTICAS
                     if (key.startsWith('attraction-')) {
                         const attractionId = key.split('-')[1];
     
@@ -58,11 +54,9 @@
                 }
             }
     
-            // Procesamos localStorage y sessionStorage
             procesarStorage(localStorage);
             procesarStorage(sessionStorage);
     
-            // Función para crear la card visual
             function createCard(title, description, imageUrl, tipo, storageKey, storageRef) {
                 const div = document.createElement('div');
                 div.className = 'historial-card';
@@ -75,7 +69,6 @@
                     <button class="remove-btn">Eliminar</button>
                 `;
     
-                // Botón para eliminar
                 div.querySelector('.remove-btn').addEventListener('click', () => {
                     storageRef.removeItem(storageKey);
                     div.remove();
